@@ -1,0 +1,138 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header" style="text-align: center;">
+      <span class="navbar-brand">Online Products Store</span>
+    </div>
+  </div>
+</nav>
+<div id="main">
+    <div class="vertical-menu">
+      <ul>
+        <a routerLink="/"><li style="text-align: center; font-weight: bold; color: grey;">All Products</li></a>
+        <a routerLink="/electronics"><li (click)="toggleElec()">Electronics</li></a>
+	        <span *ngIf="showElectronics" id="addmenu">
+			    <li (click)="toggleTV()">TV</li>
+			    <span *ngIf="showTV" id="addmenu1">
+			    	<li (click)="showTV1()">TV1</li>
+			    	<li (click)="showTV2()">TV2</li>
+			    	<li (click)="showTV3()">TV3</li>
+			    	<li (click)="showTV4()">TV4</li>
+			    </span>
+		        <li (click)="toggleMobile()">Mobiles</li>
+		        <span *ngIf="showMobile" id="addmenu1">
+			    	<li (click)="showMobile1()">Mobile1</li>
+			    	<li (click)="showMobile2()">Mobile2</li>
+			    	<li (click)="showMobile3()">Mobile3</li>
+			    	<li (click)="showMobile4()">Mobile4</li>
+			    </span>
+	       	</span>
+        <a routerLink="/clothes"><li (click)="toggleClothes()">Clothes</li></a>
+        <span *ngIf="showClothes" id="addmenu">
+    		<li (click)="toggleShirt()">Shirts</li>
+    		<span *ngIf="showShirt" id="addmenu1">
+			    <li (click)="showShirt1()">Shirt1</li>
+			    <li (click)="showShirt2()">Shirt2</li>
+			    <li (click)="showShirt3()">Shirt3</li>
+			</span>
+			<li (click)="toggleTshirt()">Tshirts</li>
+			<span *ngIf="showTshirt" id="addmenu1">
+			    <li (click)="showTshirt1()">Tshirt1</li>
+			    <li (click)="showTshirt2()">Tshirt2</li>
+			    <li (click)="showTshirt3()">Tshirt3</li>
+			</span>
+		    <li (click)="togglePants()">Pants</li>
+		    <span *ngIf="showPants" id="addmenu1">
+			    <li (click)="showPants1()">Pants1</li>
+			    <li (click)="showPants2()">Pants2</li>
+			    <li (click)="showPants3()">Pants3</li>
+			</span>
+	   	</span>
+      <a routerLink="/shoes"><li (click)="toggleShoes()">Shoes</li></a>
+	    <span *ngIf="showShoes" id="addmenu">
+			<li (click)="showShoes1()">Shoes1</li>
+			<li (click)="showShoes2()">Shoes2</li>
+		    <li (click)="showShoes3()">Shoes3</li>
+		    <li (click)="showShoes4()">Shoes4</li>
+	    </span>
+      <a routerLink="/books"><li (click)="toggleBooks()">Books</li></a>
+	    <span *ngIf="showBooks" id="addmenu">
+  		  <li (click)="showBooks1()">Books1</li>
+  			<li (click)="showBooks2()">Books2</li>
+  			<li (click)="showBooks3()">Books3</li>
+  			<li (click)="showBooks4()">Books4</li>
+	    </span>
+      </ul>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="data">
+        <h2 class="page-header">Books Inventory</h2>
+ 
+        <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder" *ngIf="books1.show">
+              <img src="assets/images/books1.jpg" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>{{books1.productName}}</h4>
+              <span class="text-muted">By {{books1.author}}</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder" *ngIf="books2.show">
+              <img src="assets/images/books2.jpg" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>{{books2.productName}}</h4>
+              <span class="text-muted">By {{books2.author}}</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder" *ngIf="books3.show">
+              <img src="assets/images/books3.jpg" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>{{books3.productName}}</h4>
+              <span class="text-muted">By {{books3.author}}</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder" *ngIf="books4.show">
+              <img src="assets/images/books4.jpg" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>{{books4.productName}}</h4>
+              <span class="text-muted">By {{books4.author}}</span>
+            </div>
+    	</div>
+    	<hr>
+
+	    <h2 class="sub-header">All Products in this Category</h2>
+    	<div class="table-responsive" id="products-list">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Product ID</th>
+                  <th>Product Name</th>
+                  <th>Product Type</th>
+                  <th>Author</th>
+                  <th>Price (In Rupees)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{books1.id}}</td>
+                  <td (click)="showBooks1()">{{books1.productName}}</td>
+                  <td>{{books1.productType}}</td>
+                  <td>{{books1.author}}</td>
+                  <td>{{books1.price}}</td>
+                </tr>
+                <tr>
+                  <td>{{books2.id}}</td>
+                  <td (click)="showBooks2()">{{books2.productName}}</td>
+                  <td>{{books2.productType}}</td>
+                  <td>{{books2.author}}</td>
+                  <td>{{books2.price}}</td>
+                </tr>
+                <tr>
+                  <td>{{books3.id}}</td>
+                  <td (click)="showBooks3()">{{books3.productName}}</td>
+                  <td>{{books3.productType}}</td>
+                  <td>{{books3.author}}</td>
+                  <td>{{books3.price}}</td>
+                </tr>
+                <tr>
+                  <td>{{books4.id}}</td>
+                  <td (click)="showBooks4()">{{books4.productName}}</td>
+                  <td>{{books4.productType}}</td>
+                  <td>{{books4.author}}</td>
+                  <td>{{books4.price}}</td>
+                </tr>
+              </tbody>
+            </table>
+    	</div>
+	</div>
+</div>
